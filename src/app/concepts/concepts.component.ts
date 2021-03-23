@@ -14,6 +14,12 @@ export class ConceptsComponent implements OnInit {
   // property binding related
   companyName = 'CGI';
 
+  profile = {
+    name: 'John',
+    city: 'London'
+  }
+
+
   constructor() { }
 
   ngOnInit(): void {
