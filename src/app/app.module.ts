@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from './menu/menu.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 import { HomeComponent } from './home/home.component';
-import { ConceptsComponent } from './concepts/concepts.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { ConceptsComponent } from './concepts/components/concepts.component';
+import { EmployeesComponent } from './employees/components/employees.component';
 import { AboutComponent } from './about/about.component';
-import { FormsModule } from '@angular/forms';
-import { CpbComponent } from './concepts/cpb/cpb.component';
-import { CebComponent } from './concepts/ceb/ceb.component';
+import { CpbComponent } from './concepts/components/cpb/cpb.component';
+import { CebComponent } from './concepts/components/ceb/ceb.component';
+import { ColorizerDirective } from './concepts/directives/colorizer.directive';
+import { AddEmployeeComponent } from './employees/components/add-employee/add-employee.component';
+import { EmployeeDetailsComponent } from './employees/components/employee-details/employee-details.component';
 
 // Main Switching Box
 @NgModule({
@@ -26,12 +29,16 @@ import { CebComponent } from './concepts/ceb/ceb.component';
     EmployeesComponent,
     AboutComponent,
     CpbComponent,
-    CebComponent
+    CebComponent,
+    ColorizerDirective,
+    AddEmployeeComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule // needed for ngModel
+    FormsModule, // needed for ngModel
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] // AppModule is bootstrapped with a Comp -- AppComp
