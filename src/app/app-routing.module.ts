@@ -5,6 +5,7 @@ import { ConceptsComponent } from './concepts/concepts.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { HomeComponent } from './home/home.component';
 
+
 // Config the Routes
 const routes: Routes = [
   { path: '', component: HomeComponent },

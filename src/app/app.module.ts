@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { AboutComponent } from './about/about.component';
+import { FormsModule } from '@angular/forms';
+import { CpbComponent } from './concepts/cpb/cpb.component';
+import { CebComponent } from './concepts/ceb/ceb.component';
 
 // Main Switching Box
 @NgModule({
@@ -21,11 +24,14 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     ConceptsComponent,
     EmployeesComponent,
-    AboutComponent
+    AboutComponent,
+    CpbComponent,
+    CebComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule // needed for ngModel
   ],
   providers: [],
   bootstrap: [AppComponent] // AppModule is bootstrapped with a Comp -- AppComp
