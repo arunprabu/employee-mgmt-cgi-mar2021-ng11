@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { CebComponent } from './concepts/components/ceb/ceb.component';
 import { ColorizerDirective } from './concepts/directives/colorizer.directive';
 import { AddEmployeeComponent } from './employees/components/add-employee/add-employee.component';
 import { EmployeeDetailsComponent } from './employees/components/employee-details/employee-details.component';
+
 
 // Main Switching Box
 @NgModule({
@@ -38,7 +40,8 @@ import { EmployeeDetailsComponent } from './employees/components/employee-detail
     BrowserModule,
     AppRoutingModule,
     FormsModule, // needed for ngModel
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent] // AppModule is bootstrapped with a Comp -- AppComp

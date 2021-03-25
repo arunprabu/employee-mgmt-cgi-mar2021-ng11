@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'concepts', component: ConceptsComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employees/add', component: AddEmployeeComponent },
-  { path: 'employees/1', component: EmployeeDetailsComponent },
+  { path: 'employees/:id', component: EmployeeDetailsComponent }, // id is the URL Param
   { path: 'about', component: AboutComponent }
 ];
 

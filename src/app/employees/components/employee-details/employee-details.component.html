@@ -2,13 +2,14 @@
 <div class="container">
   <div class="row">
     <div class="card col-md-12">
-      <div class="card-body">
-        <h5 class="card-title">John</h5>
+      <div class="card-body" *ngIf="employeeData">
+        <h5 class="card-title">{{employeeData.name}}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
           card's content.</p>
-        <p>EMail: a@b.com</p>
-        <p>Phone: 345235243</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEmployeeModal">Edit</button>
+        <p>EMail: {{employeeData.email}}</p>
+        <p>Phone: {{employeeData.phone}}</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" 
+        data-target="#editEmployeeModal" (click)="handleEditModalOpen()">Edit</button>
         <button type="button" class="btn btn-danger">Delete</button>
 
         <!-- Modal -->
@@ -22,28 +23,31 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <form>
+              <div class="modal-body" *ngIf="dupEmployeeData">
+                <form ngNativeValidate #employeeForm="ngForm" (ngSubmit)="handleUpdate(employeeForm)">
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" placeholder="Enter name">
+                      <input type="text" class="form-control" name="name" placeholder="Enter name" 
+                      [(ngModel)]="dupEmployeeData.name" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="email" placeholder="Enter Email" required>
+                      <input type="text" class="form-control" name="email" placeholder="Enter Email" required
+                      [(ngModel)]="dupEmployeeData.email">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Phone</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="phone" placeholder="Enter Phone" required>
+                      <input type="text" class="form-control" name="phone" placeholder="Enter Phone" required
+                      [(ngModel)]="dupEmployeeData.phone">
                     </div>
                   </div>
 
-                  <div class="alert alert-success">
+                  <div class="alert alert-success" *ngIf="isUpdated">
                     Updated successfully!
                   </div>
 
