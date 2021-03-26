@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee';
 import { EmployeeService } from '../services/employee.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EmployeesComponent implements OnInit {
 
-  employeeList: any[] = [];
+  employeeList: Employee[] = [];
 
   constructor( private employeeService: EmployeeService) {
     console.log('Inside Constructor');
@@ -20,7 +21,7 @@ export class EmployeesComponent implements OnInit {
     // ideal place for us to req to REST API
     console.log('Inside ngOnInit');
     this.employeeService.getEmployees()
-      .subscribe( (res: any) => {
+      .subscribe( (res: Employee[]) => {
         console.log(res);
         this.employeeList = res;
       });

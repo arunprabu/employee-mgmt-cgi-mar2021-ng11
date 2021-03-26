@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 
 // Decorator
 @Injectable({
@@ -24,13 +26,14 @@ export class EmployeeService {
       }));
   }
 
-  getEmployees(): any {
+  getEmployees(): Observable<Employee[]> {
     console.log('Req received');
     // What is the API URL? http://jsonplaceholder.typicode.com/users
     // What's the Http Method? GET
     return this.http.get('http://jsonplaceholder.typicode.com/users')
       .pipe(map((res: any) => {
         console.log(res);
+        // sort, filter, remove, manipulate, convert
         return res;
       }));
   }

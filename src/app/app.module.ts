@@ -10,14 +10,15 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/components/concepts.component';
-import { EmployeesComponent } from './employees/components/employees.component';
 import { AboutComponent } from './about/about.component';
 import { CpbComponent } from './concepts/components/cpb/cpb.component';
 import { CebComponent } from './concepts/components/ceb/ceb.component';
 import { ColorizerDirective } from './concepts/directives/colorizer.directive';
-import { AddEmployeeComponent } from './employees/components/add-employee/add-employee.component';
-import { EmployeeDetailsComponent } from './employees/components/employee-details/employee-details.component';
-
+import { EmployeesModule } from './employees/employees.module';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
+import { ProductsModule } from './products/products.module';
+import { LoginComponent } from './auth/components/login/login.component';
 
 // Main Switching Box
 @NgModule({
@@ -28,19 +29,20 @@ import { EmployeeDetailsComponent } from './employees/components/employee-detail
     MenuComponent,
     HomeComponent,
     ConceptsComponent,
-    EmployeesComponent,
     AboutComponent,
     CpbComponent,
     CebComponent,
     ColorizerDirective,
-    AddEmployeeComponent,
-    EmployeeDetailsComponent
+    PageNotFoundComponent,
+    EllipsisPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    EmployeesModule,
+    ProductsModule,
     AppRoutingModule,
     FormsModule, // needed for ngModel
-    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
