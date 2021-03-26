@@ -26,18 +26,26 @@ export class EmployeeDetailsComponent implements OnInit {
     // TODO: learn about other ways to read url params
 
     this.employeeService.getEmployeeById(employeeId)
-      .subscribe( (res: any) => {
+      .subscribe((res: any) => {
         console.log(res);
         this.employeeData = res;
       });
   }
 
-  handleEditModalOpen(): void{
+  handleEditModalOpen(): void {
     this.dupEmployeeData = { ...this.employeeData };
   }
 
-  handleUpdate( employeeForm: NgForm): void{
+  async handleUpdate(employeeForm: NgForm): Promise<void> {
     console.log(this.dupEmployeeData);
-    console.log(employeeForm);
+    // console.log(employeeForm); // entire form state
+    console.log(employeeForm.value);
+
+    const status = await this.employeeService.updateEmployee(this.dupEmployeeData);
+    console.log(status);
+
+    if (status && status.id) {
+      this.isUpdated = true;
+    }
   }
 }

@@ -46,4 +46,26 @@ export class EmployeeService {
         return res;
       }));
   }
+
+  // Using Promise
+  updateEmployee(formData: any): any{
+    console.log(formData);
+    // What's the URL? http://jsonplaceholder.typicode.com/users/1
+    // What's the HTTP Method? PUT
+
+    return this.http.put('http://jsonplaceholder.typicode.com/users/' + formData.id, formData)
+      .toPromise()
+      .then( (res: any) => {
+        console.log(res);
+        return res;
+      })
+      .catch( (err: any) => {
+        console.log(err);
+        return err;
+      })
+      .finally( () => {
+        console.log('It is over!');
+      });
+
+  }
 }
